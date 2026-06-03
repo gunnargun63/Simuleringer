@@ -84,16 +84,6 @@
     }
     .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
     header { margin-bottom: 56px; }
-    .label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .label::before { content: '{ '; }
-    .label::after  { content: ' }'; }
     h1 {
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
@@ -219,10 +209,9 @@
   </div>
 
   <header>
-    <p class="label">Simuleringer</p>
     <h1>Simuleringer til<br><span>fysik i gymnasiet</span></h1>
     <div class="divider"></div>
-    <p class="subtitle">Interaktive HTML-simuleringer lavet i samarbejde med Claude. Koden til simuleringerne kan frit kopieres og genbruges.</p>
+    <p class="subtitle">Interaktive HTML5-simuleringer lavet i samarbejde med Claude. Koden til simuleringerne kan frit kopieres og genbruges.</p>
   </header>
 
   <p class="section-title">Emner</p>
@@ -254,12 +243,21 @@
       <div class="card-desc">Diverse fysiksimuleringer</div>
     </a>
 
-    <!-- Tilføj nye emner her — de fylder automatisk gitteret ud to per række -->
-
   </div>
 
-  <footer>Gunnar Gunnarsson · Koden må frit kopieres og genbruges</footer>
+  <footer>Gunnar Gunnarsson · <span id="opdateret">juni 2026</span></footer>
 
 </div>
+
+<script>
+  (function () {
+    var maaneder = ['januar','februar','marts','april','maj','juni','juli','august',
+                    'september','oktober','november','december'];
+    var d = new Date(document.lastModified);
+    if (!isNaN(d.getTime())) {
+      document.getElementById('opdateret').textContent = maaneder[d.getMonth()] + ' ' + d.getFullYear();
+    }
+  })();
+</script>
 </body>
 </html>
